@@ -1,0 +1,9 @@
+<table>
+    <tr *ngFor="let g of games">
+        <td><code>{{g.name}}</code></td>
+    </tr>
+    <tfoot>
+        <td><button type="button" (click)="previousButton()">Previous</button></td>
+        <td><button type="button" (click)="nextButton()">Next</button></td>
+    </tfoot>
+</table>

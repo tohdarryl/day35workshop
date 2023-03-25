@@ -1,0 +1,12 @@
+
+    <table>
+        <tr>
+            <td>Games per page: </td>
+            <td>
+                <select name="noOfGames" (change)="onNumberSelect($event)">
+                    <option *ngFor="let n of numbers" value="{{n}}" default="1">{{n}}</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
