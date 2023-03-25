@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models';
@@ -8,7 +8,7 @@ import { Games } from '../models';
   templateUrl: './games-display.component.html',
   styleUrls: ['./games-display.component.css']
 })
-export class GamesDisplayComponent implements OnInit, OnDestroy{
+export class GamesDisplayComponent implements OnInit, OnDestroy, OnChanges{
 
 
   games!: Games[]
@@ -23,6 +23,11 @@ export class GamesDisplayComponent implements OnInit, OnDestroy{
   
 
   constructor(private gamesSvc: GamesService){}
+
+  // sees changes at @Input
+  ngOnChanges(changes: SimpleChanges): void{
+    console.info(">>> simple changes: ", changes)
+  }
 
   ngOnInit(): void {
       // subscribe, everytime .next() is executed, will pass us data and we'll set data as this.weather
